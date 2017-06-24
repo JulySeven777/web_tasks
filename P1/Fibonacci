@@ -1,1 +1,65 @@
 #include<stdio.h>
+/*
+(Fn+1 Fn      (1  1
+ Fn   Fn-1)=   1  0)^n
+ 
+ 可用快速幂矩阵算法来计算 幂矩阵 
+ 具体算法：任何一个整数N，都能用二进制来表示 
+ 这就允许我们将幂离散化
+ 比如A^19  =>  （A^16）*（A^2）*（A^1），显然采取这样的方式计算时因子数将是log(n)级别的(原来的因子数是n)，不仅这样，
+ 因子间也是存在某种联系的，比如A^4能通过(A^2)*(A^2)得到，A^8又能通过(A^4)*(A^4)得到，
+
+ 此算法算法复杂度降到log2N； 
+ 
+ 处理的是前20个fibonacci数 
+
+*/
+
+struct matrix  //用矩阵表示矩阵 
+{
+    int m[2][2];
+}ans, base;
+
+matrix multi(matrix a, matrix b)  //矩阵a b 相乘，返回新矩阵 
+{
+    matrix tmp;
+    for(int i = 0; i < 2; ++i)
+    {
+        for(int j = 0; j < 2; ++j)
+        {
+            tmp.m[i][j] = 0;
+            for(int k = 0; k < 2; ++k)
+                tmp.m[i][j] = (tmp.m[i][j] + a.m[i][k] * b.m[k][j]);
+        }
+    }
+    return tmp;
+}
+
+int fast_mod(int n)  // 快速幂求矩阵 base 的  n 次幂 
+{
+    base.m[0][0] = base.m[0][1] = base.m[1][0] = 1;
+    base.m[1][1] = 0;
+    ans.m[0][0] = ans.m[1][1] = 1;  // ans 初始化为单位矩阵 
+    ans.m[0][1] = ans.m[1][0] = 0;
+    while(n)
+    {
+        if(n & 1)  
+        {
+            ans = multi(ans, base);
+        }
+        base = multi(base, base);
+        n >>= 1;
+    }
+    return ans.m[0][1];
+}
+
+int main()
+{
+    int n;
+    printf("请输入想计算的Fibonacci数\n"); 
+    while(scanf("%d", &n) && n != -1)
+    {   
+        printf("%d\n", fast_mod(n));
+    }
+    return 0;
+}
