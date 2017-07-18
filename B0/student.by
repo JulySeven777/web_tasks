@@ -2,16 +2,16 @@
 # -*- coding: UTF-8 -*-
 
 class Student
-   attr_accessor :stu_id,:stu_name,:stu_gender,:stu_age  #使用访问器来对类成员变量进行访问
-   def initialize(id, name,gender,age)  #构造函数
-      @stu_id=id
-      @stu_name=name
-      @stu_gender=gender
-			@stu_age=age
-   end
-	 def to_s
-      "id:#@stu_id,name:#@stu_name,gender:#@stu_gender,age:#@stu_age"
-   end
+   		attr_accessor :stu_id,:stu_name,:stu_gender,:stu_age  #使用访问器来对类成员变量进行访问
+   		def initialize(id, name,gender,age)  #构造函数
+      			@stu_id=id
+      			@stu_name=name
+      			@stu_gender=gender
+						@stu_age=age
+   		end
+	 		def to_s
+      			"id:#@stu_id      name:#@stu_name     gender:#@stu_gender     age:#@stu_age"
+   		end
 end
 
 
