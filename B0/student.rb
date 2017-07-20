@@ -39,7 +39,7 @@ end
 
 def sort1(h)  #用sort1（）函数实现根据id大小排序 并用迭代器进行输出
 	h1=h.sort
-	h1.each do |i|
+	h1.each do |i|  
 	  puts i
 			    end
 end
