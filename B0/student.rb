@@ -7,11 +7,11 @@ class Student
     @stu_id=id
     @stu_name=name
     @stu_gender=gender
-		@stu_age=age
+    @stu_age=age
   end
 
   def to_s
-		"id:#@stu_id      name:#@stu_name     gender:#@stu_gender     age:#@stu_age"
+    "id:#@stu_id      name:#@stu_name     gender:#@stu_gender     age:#@stu_age"
   end
 end
 
@@ -60,20 +60,30 @@ end
 
 
  #以学生类实例对象为值 创建数组a
-stu=Student.new(100,"STU".to_s+newname(15),newgender(),rand(15..20))
-a= Array.new(100,stu)
+stu=Student.new(0,"STU".to_s+newname(15),newgender(),rand(15..20))
+a= Array.new(101,stu)
 
-#用迭代器生成100个学生类实例对象 加入数组a
-100.times{|index|stu=Student.new(100-index,"STU".to_s+newname(15),newgender(),rand(15..20));a[100-index]=stu}
+require 'yaml'
+if File.exist?("student.yml")          #先判断student.yml文件是否存在 若存在 则将其信息引入到a
+	puts "该student.yml表已存在!正在载入表内学生信息..."
+	res = YAML.load(File.open("student.yml"))
+	res.each do |i|
+	           a[i.stu_id]=i;
+                 end
+	puts"信息已载入完成..."
 
-#100.times{|index|puts "#{a[index]}"}
-
-
-puts"---------------------------"
-puts("100个学生已初始化完成！")
-puts"---------------------------"
-
-
+else                                 #不存在的话就新生成100个学生信息
+	puts "该student.yml表不存在！新生成学生信息！"
+	#用迭代器生成100个学生类实例对象 加入数组a
+	100.times{|index|stu=Student.new(100-index,"STU".to_s+newname(15),newgender(),rand(15..20));a[100-index]=stu}
+#	a.delete_at(0);
+	puts"---------------------------"
+	puts("100个学生已初始化完成！")
+	puts"---------------------------"
+	File.open('student.yml', 'w') do |os|         #将a放入student.yaml中
+                                  YAML::dump(a, os)
+                                end
+end
 
 
 puts("请输入要执行的操作：")            #进行增查改删操作选择
@@ -94,9 +104,9 @@ if(x.to_s=="1")                   #插入操作 在Array表中 先预判该同�
     if a[id]!=nil then puts"该同学已存在！"
     else
       puts("请输入该插入同学的姓名:")
-      name=gets.chomp
+      name=gets.chomp.to_s
       puts("请输入该插入同学的性别:")
-      gender=gets.chomp
+      gender=gets.chomp.to_s
       puts("请输入该插入同学的年龄:")
       age=gets.chomp
       age=age.to_i
@@ -126,9 +136,9 @@ if(x.to_s=="3")           #修改操作 在Array表中 先预判该同学是否�
   if a[seekid]=nil  then puts"该同学不存在！"
   else
     puts("请输入该修改同学的姓名:")
-    name=gets.chomp
+    name=gets.chomp.to_s
     puts("请输入该修改同学的性别:")
-    gender=gets.chomp
+    gender=gets.chomp.to_s
     puts("请输入该修改同学的年龄:")
     age=gets.chomp
     age=age.to_i
@@ -141,6 +151,7 @@ if(x.to_s=="4")            #删除操作 在Array中 先预判该同学是否存
   puts("请输入该删除同学的学号:")
   seekid=gets.chomp
   seekid=seekid.to_i
+	puts seekid
   if a[seekid]==nil  then puts"该同学不存在！"
   else
     a.delete_at(seekid)
@@ -164,13 +175,11 @@ if(x.to_s=="5")        #排序操作
   end
 end
 
-#100.times{|index|puts "#{a[index]}"}
 
-
-#保存成yml文件功能未实现
-#require 'yaml'
-#stu = YAML.load(File.open("student.yml"))
-#puts "student id is #{stu["stu"]["id"]}"
-#puts "student name is #{stu["stu"]["name"]}"
-#puts "student gender is #{stu["stu"]["gender"]}"
-#puts "student age is #{stu["stu"]["age"]}"
+if x.to_s=="1"||x.to_s=="3"||x.to_s=="4"  #如果对表作出了修改 则应该更新表
+	puts"正在更新文件..."
+  File.open('student.yml', 'w') do |os|
+																YAML::dump(a, os)
+															end
+  puts"更新文件已完成..."
+end
