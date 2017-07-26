@@ -1,0 +1,36 @@
+<留言板的消息如下：>
+<br>
+<% @massages.reverse_each do|i| %>
+                        id:<%=i.id%>
+<br>
+                        author:<%=i.author%>
+<br>
+                        time:<%=i.time%>
+<br>
+                        massages:<%=i.massage%>
+
+<form action="/delete" method="post">
+<input type="submit" value="delete">
+<input type="hidden" name="hiddenid" value=<%=i.id%>>
+</form>
+<br><br><br>
+                        <%end%>
+
+<form action="/search" method="get">
+	id:<input type="text" placeholder='input the id you search for here...' name="id">
+	<br>
+	author:<input type="text" placeholder='input the author you search for here...' name="author">
+	<br>
+	<input type="hidden"  name="choice" value="0">
+	<input type="submit" value="查询">
+</form>
+
+<br>
+<br>
+<form action="/add" method="post">
+	author：<input type="text" placeholder='input the name here...' name="author">
+	<br>
+	massage：<input type="text" placeholder='input the massage here...' name="massage">
+	<br>
+	<input type="submit" value="提交 ">
+</form>
