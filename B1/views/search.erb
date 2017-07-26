@@ -1,0 +1,42 @@
+<%if @flag==0%>
+您的输入有误！
+<br>
+错误原因：
+<%=@hint%>
+
+<%elsif @flag==1%>
+编号为<%=@id%>的留言为：  <%=@hint%>
+
+
+<% else%>
+  作者为 <%=@author%>的留言为：
+	<br><br>
+	<%
+		@hint.each do|i|
+	%>
+	id:<%=i.id%>
+	<br>
+	<br>
+	time:<%=i.time%>
+	<br>
+	massages:<%=i.massage%>
+	<br><br><br>
+	     <%end%>
+
+
+
+
+			 <br>
+			 <form action="" method="get">
+			<input type="radio" name="choice" value="1"> 按留言id排序
+			<br>
+			<input type="radio" name="choice" value="2"> 按留言时间排序
+			<br>
+			<input type="hidden" name="id" value="">
+			<input type="hidden" name="author" value=<%=@author%>>
+			 <input type="submit" name="排序">
+			 </form>
+<%end%>
+<br>
+<br>
+<a href="/">返回留言板</a>
