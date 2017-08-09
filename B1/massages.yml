@@ -1,0 +1,185 @@
+---
+- &1 !ruby/object:Massage
+  id: 0
+  author: AUTHORRruhz4hhQnc0U4X
+  massage: MASSTcoSs2clJbRcUP2FVnPy
+  time: 2017-07-25 19:37:01.368574416 +08:00
+- !ruby/object:Massage
+  id: 1
+  author: AUTHORG4VKHtrtNc7Ot6W
+  massage: MASSqNcYqQdf5ldoMlmKpL5Z
+  time: 2017-07-25 19:40:01.383561933 +08:00
+- !ruby/object:Massage
+  id: 2
+  author: AUTHORe21DauHBWwRmGWA
+  massage: MASSDKaxjDFODe7H6VfWdMgo
+  time: 2017-07-25 19:36:06.383891414 +08:00
+- !ruby/object:Massage
+  id: 3
+  author: AUTHORrtikf1BikqjIPRK
+  massage: MASSTddjafwzmokC7aGFNtx8
+  time: 2017-07-25 19:45:11.384220881 +08:00
+- !ruby/object:Massage
+  id: 4
+  author: AUTHORpGyje8rWI2q55E5
+  massage: MASSgyv6YcHWEpVBByDqycWU
+  time: 2017-07-25 19:36:16.384483851 +08:00
+- !ruby/object:Massage
+  id: 5
+  author: AUTHORvfmAXgOTmpEReqZ
+  massage: MASSOQpLOzM1PEdRNPkeGkMY
+  time: 2017-07-25 19:39:21.385162683 +08:00
+- !ruby/object:Massage
+  id: 6
+  author: AUTHORaMSbka0wve8115K
+  massage: MASSgZKUaybvMlGQS63PIfRx
+  time: 2017-07-25 19:36:26.385482985 +08:00
+- !ruby/object:Massage
+  id: 7
+  author: AUTHORUKVEDEN7FkcKeyP
+  massage: MASSxHbmSjv2AbXuzY3kzDqn
+  time: 2017-07-25 19:36:31.385763347 +08:00
+- !ruby/object:Massage
+  id: 8
+  author: AUTHORVDLvmLnOAB5k7oj
+  massage: MASSs1BxR7anq8W1nixpqaxr
+  time: 2017-07-25 19:50:36.386021970 +08:00
+- !ruby/object:Massage
+  id: 9
+  author: AUTHORqK15CQPE7GMXQSh
+  massage: MASSyeRKUmS2uUQRXVHilVTp
+  time: 2017-07-25 19:36:41.386373032 +08:00
+- !ruby/object:Massage
+  id: 10
+  author: AUTHORiEENtHFoNgrNUBr
+  massage: MASSyBfQlpymkal3CCNtA017
+  time: 2017-07-25 19:30:46.386757238 +08:00
+- !ruby/object:Massage
+  id: 11
+  author: AUTHORnbcxqomNiQpLV8y
+  massage: MASSGmoD7l8ObCbVZYbhZqHs
+  time: 2017-07-25 19:36:51.387128664 +08:00
+- !ruby/object:Massage
+  id: 12
+  author: AUTHORiEENtHFoNgrNUBr
+  massage: MASSmuUnH4EeOmMa3c6o0J1O
+  time: 2017-07-25 19:36:56.387340879 +08:00
+- !ruby/object:Massage
+  id: 13
+  author: AUTHOR25x6lvJeUfbd0im
+  massage: MASSjpTzOf00hiCe5cfVKkNv
+  time: 2017-07-25 19:37:01.387693494 +08:00
+- !ruby/object:Massage
+  id: 14
+  author: AUTHORegIzuXn6376BFeJ
+  massage: MASSuLsPnRPyrMMFS7gXg5lt
+  time: 2017-07-25 19:37:06.387989738 +08:00
+- !ruby/object:Massage
+  id: 15
+  author: AUTHORA0MCWioqhPCwaw6
+  massage: MASS7VebQgqOBcKXBRUkmpcP
+  time: 2017-07-25 19:37:11.388351441 +08:00
+- !ruby/object:Massage
+  id: 16
+  author: AUTHORz4n1Vh2x6TecKeb
+  massage: MASSFjnFidIPkzpXqCRenq8J
+  time: 2017-07-25 19:37:16.388742180 +08:00
+- !ruby/object:Massage
+  id: 17
+  author: AUTHORy5PVvPpMpjljC8g
+  massage: MASSVIhxare5fUuQjV88gHdb
+  time: 2017-07-25 19:37:21.388970122 +08:00
+- !ruby/object:Massage
+  id: 18
+  author: AUTHORXsSjhC4WqyzBdur
+  massage: MASSdDjwTdRRdA07dMwrnuKH
+  time: 2017-07-25 19:37:26.389197294 +08:00
+- !ruby/object:Massage
+  id: 19
+  author: AUTHOR3dSVzxHEIBEPgxw
+  massage: MASSHYbtFEQPAFvMXMtMr3UV
+  time: 2017-07-25 19:37:31.389435561 +08:00
+- !ruby/object:Massage
+  id: 20
+  author: AUTHOR3dSVzxHEIBEPgxw
+  massage: MASSAWhVoswjmRn0YMwLgvrd
+  time: 2017-07-25 19:37:36.389768445 +08:00
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
+- *1
