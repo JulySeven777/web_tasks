@@ -56,7 +56,7 @@ get '/getMassages'do
   else
     u=User.all
     m=Message.order(:create_at)
-		@massages=m
+    @massages=m
     @users=u
     erb:getMassages
   end
@@ -65,21 +65,21 @@ end
 
 
 post '/delete' do
-	del=DealMassage.new()
-	i,s=del.delete_at(params[:hiddenid].to_i)
-	@id=params[:hiddenid].to_i
-	@s=s
-	erb :delete
+  del=DealMassage.new()
+  i,s=del.delete_at(params[:hiddenid].to_i)
+  @id=params[:hiddenid].to_i
+  @s=s
+  erb :delete
 end
 
 
 
 get '/delete/:id' do
-		s=params['id']
-		array=s.split(" ")
-		del=DealMassage.new()
-		@cnt,@res=del.delete(array)
-	erb :delete_array
+  s=params['id']
+  array=s.split(" ")
+  del=DealMassage.new()
+  @cnt,@res=del.delete(array)
+  erb :delete_array
 end
 
 
@@ -87,8 +87,8 @@ post '/add' do
   message=Message.create(content:params[:massage],user_id:session[:user_id],create_at:Time.new)
   if message.valid?
     @id=message.id
-		@author_id=message.user_id
-		@massage=message.content
+    @author_id=message.user_id
+    @massage=message.content
     erb :addSuccess
   else
     @error =message.errors.messages
@@ -98,28 +98,26 @@ end
 
 
 get '/search' do
-	if params[:id].length<=0&&params[:author].length<=0
-		  @hint="请输入留言id或留言者姓名"
-			@flag=0
-	elsif params[:id].length!=0&&params[:author].length==0
-		search=DealMassage.new()
-		@flag,@hint=search.search_byid(params[:id].chomp.to_i)
-	elsif params[:id].length==0&&params[:author].length!=0
-		search=DealMassage.new()
-		@flag,@hint=search.search_byauthor(params[:author].chomp.to_s)
-		if(@flag==2)
-			if(params[:choice].to_i==1)
-				#@hint=sort_byid(@hint)
+  if params[:id].length<=0&&params[:author].length<=0
+    @hint="请输入留言id或留言者姓名"
+    @flag=0
+  elsif params[:id].length!=0&&params[:author].length==0
+    search=DealMassage.new()
+    @flag,@hint=search.search_byid(params[:id].chomp.to_i)
+  elsif params[:id].length==0&&params[:author].length!=0
+    search=DealMassage.new()
+    @flag,@hint=search.search_byauthor(params[:author].chomp.to_s)
+    if(@flag==2)
+      if(params[:choice].to_i==1)
         @hint=@hint.order(:id)
-			elsif params[:choice].to_i==2
+      elsif params[:choice].to_i==2
         @hint=@hint.order(:create_at)
-        #@hint=sort_bytime(@hint)
-			end
-		end
-	end
-	@id=params[:id]
-	@author=params[:author]
-	erb :search
+      end
+    end
+  end
+  @id=params[:id]
+  @author=params[:author]
+  erb :search
 end
 
 
@@ -141,6 +139,7 @@ post '/passwordChange' do
   end
   erb :passChange
 end
+
 
 get '/PersonalMess'do
   user=User.find(session[:user_id])
