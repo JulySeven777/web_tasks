@@ -1,0 +1,32 @@
+<head>
+  <title="个人主页">
+  </title>
+</head>
+欢迎来到个人主页！<br><br>
+您的用户名是：<%=@user_name%><br>
+您的用户id是：<%=@user_id%><br>
+您的留言有：<br>
+<%if @flag==1%>
+  <%=@messages.content%>
+<%elsif @flag==2%>
+  <%@messages.each do|i|%>
+    id:<%=i.id%><br>
+    author_id:<%=i.user_id%><br>
+    time:<%=i.create_at%><br>
+    massages:<%=i.content%><br><br><br>
+  <%end%>
+<%end%>
+
+密码修改：<br>
+<form action="/passwordChange" method="post">
+	Curent Password：<input type="password" placeholder='input your curent password here...' name="curpassword">
+	<br>
+  New Password：<input type="password" placeholder='input your new password here...' name="newpassword">
+  <br>
+  Confirm New Password:<input type="password" placeholder='repeat your new password here...' name="newpassword_confirmation">
+  <br>
+	<input type="submit" value="提交密码修改">
+</form>
+
+<br><br>
+<a href="logout">注销登录</a>

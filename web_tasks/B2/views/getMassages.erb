@@ -1,0 +1,44 @@
+<head>
+  <title="留言板">
+  </title>
+</head>
+<a href="/PersonalMess">查看个人主页</a>
+<br>
+<br>
+<留言板的消息如下：>
+<br>
+
+<% @massages.reverse_each do|i| %>
+  id:<%=i.id%><br>
+  author_id:<%=i.user_id%> <br>
+  author_name:<%=@users.find_by(user_id:i.user_id).user_name%><br>
+  time:<%=i.create_at%><br>
+  massages:<%=i.content%>
+
+<form action="/delete" method="post">
+<input type="submit" value="delete">
+<input type="hidden" name="hiddenid" value=<%=i.id%>>
+</form>
+<br><br><br>
+<%end%>
+
+<br>
+<form action="/search" method="get">
+	id:<input type="text" placeholder='input the id you search for here...' name="id">
+	<br>
+	author:<input type="text" placeholder='input the author you search for here...' name="author">
+	<br>
+	<input type="hidden"  name="choice" value="0">
+	<input type="submit" value="查询">
+</form>
+
+<br>
+<br>
+<form action="/add" method="post">
+	massage：<input type="text" placeholder='input the massage here,mininum length is 10,maxinum length is 150...' size="100" name="massage">
+	<br>
+	<input type="submit" value="提交 ">
+</form>
+
+<br>
+<br>

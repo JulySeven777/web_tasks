@@ -1,0 +1,14 @@
+<head>
+  <title="密码修改结果">
+  </title>
+</head>
+<%if @flag==1%>
+  密码修改成功！<br>
+<%else %>
+  密码修改失败！<br>
+  失败的理由是：<br>
+  <%=@hint%><br>
+<%end%>
+<br>
+<br>
+<a href="/PersonalMess">返回个人主页</a><br>

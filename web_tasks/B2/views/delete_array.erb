@@ -1,0 +1,16 @@
+<head>
+  <title="删除多条留言结果">
+  </title>
+</head>
+删除结果：
+<br>
+<br>
+<%@res.each do |i|%>
+					    <%=i%>
+					     <br>
+							 <br>
+				   <%end%>
+
+共删除<%=@cnt%>条留言!
+<br>
+<a href="/getMassages">返回留言板</a>

@@ -1,0 +1,29 @@
+<head>
+  <title="注册出错">
+  </title>
+</head>
+注册失败！
+<br>
+<br>
+您注册失败的理由是：
+<br>
+<% @hint.each do |a|%>
+  <%
+   if a.to_s=="[:password_confirmation, [\"doesn\'t match Password\"]]"
+  %>
+  两次密码输入不匹配，请您确认后再次输入！<br>
+
+  <% elsif  a.to_s=="[:user_name, [\"has already been taken\"]]" %>
+  用户名已经存在，请登录或换一个用户名！<br>
+
+  <% elsif  a.to_s=="[:password, [\"can\'t be blank\"]]" %>
+  密码不能为空，请重新输入！<br>
+  <%end%>
+  <%end%>
+<br>
+
+<br>
+<a href="/login">登录</a>
+<br>
+<a href="/signup">注册</a>
+<br>
