@@ -26,11 +26,20 @@
 <form action="/search" method="get">
 	id:<input type="text" placeholder='input the id you search for here...' name="id">
 	<br>
+	<input type="hidden"  name="choice" value="0">
+  <input type="hidden"  name="search_by" value="1">
+	<input type="submit" value="按id查询">
+</form>
+
+<br>
+<form action="/search" method="get">
 	author:<input type="text" placeholder='input the author you search for here...' name="author">
 	<br>
 	<input type="hidden"  name="choice" value="0">
-	<input type="submit" value="查询">
+  <input type="hidden"  name="search_by" value="2">
+	<input type="submit" value="按留言者查询查询">
 </form>
+
 
 <br>
 <br>

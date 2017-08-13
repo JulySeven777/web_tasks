@@ -15,6 +15,7 @@ ActiveRecord::Base.establish_connection(dbconfig)
 
 
 class User < ActiveRecord::Base
+  has_many :messages
   validates  :user_name,
   presence:true,uniqueness: true
   validates :password,
@@ -23,6 +24,7 @@ end
 
 
 class Message < ActiveRecord::Base
+  belongs_to :user
   validates :content,
   presence:true,length:{in: 10...150}
 end
@@ -70,8 +72,8 @@ class DealMassage
     if user==nil
       return[0,'该留言者不存在！']
     else
-      messages=Message.where("user_id=?",user.user_id)
-      if messages==nil
+      messages=user.messages#Message.where("user_id=?",user.user_id)
+      if messages.count==0
         return[0,'该留言者没有发言！']
       else
         return [2,messages]
@@ -81,5 +83,14 @@ class DealMassage
 end
 
 5.times{|index|u=User.new;u.user_name='user'+(index+1).to_s;u.password='user'+(index+1).to_s;u.save}
+u=User.first
+10.times{|index| u=User.find(index/2+1);m=u.messages.build(:content=>'message_content'+(index+1).to_s,:user_id=>index/2+1,:create_at=>Time.new) ;m.save}
 
-10.times{|index|m=Message.new;m.content='message_content'+(index+1).to_s;m.user_id=(index+2)/2;m.create_at=Time.new;m.save}
+#u=User.last
+#2.times{|index| m=u.messages.build(:content=>'message_content'+(index+3).to_s,:user_id=>5,:create_at=>Time.new) ;m.save}
+
+
+
+#m=Message.new;+(index+1).to_s;m.user_id=(index+2)/2;m.create_at=Time.new;m.save
+
+#10.times{|index|m=Message.new;m.content='message_content'+(index+1).to_s;m.user_id=(index+2)/2;m.create_at=Time.new;m.save}
